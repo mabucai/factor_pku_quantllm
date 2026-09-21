@@ -1,0 +1,23 @@
+{
+  "strict_close_board": {
+    "expression": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.9995) * ((low / close) < 0.995)",
+    "name": "STRICT_CLOSE_BOARD（严格收盘封板代理）",
+    "train_rank_ir": 0.785,
+    "valid_rank_ir": 0.772,
+    "test_rank_ir": 0.745
+  },
+  "first_board_5": {
+    "expression": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (1 - ts_max(ts_delay(((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998), 1), 5))",
+    "name": "FIRST_BOARD_5（近5日首板代理）",
+    "train_rank_ir": 0.754,
+    "valid_rank_ir": 0.744,
+    "test_rank_ir": 0.722
+  },
+  "board_close_strength": {
+    "expression": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (close / open - 1)",
+    "name": "BOARD_CLOSE_STRENGTH（封板×日内上涨强度）",
+    "train_rank_ir": 0.714,
+    "valid_rank_ir": 0.741,
+    "test_rank_ir": 0.716
+  }
+}

@@ -1,0 +1,4 @@
+vnpy[alpha]
+pandas
+numpy
+matplotlib

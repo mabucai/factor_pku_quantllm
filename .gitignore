@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+runs/cache/
+data/lab/csi300/component/
+data/lab/csi300/daily/
+data/lab/csi300/minute/
+data/lab/csi300/contract.json

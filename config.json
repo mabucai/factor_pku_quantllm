@@ -1,0 +1,23 @@
+{
+  "lab_path": "data/lab/csi300",
+  "cache_dir": "runs/cache",
+  "index": "000300.SSE",
+  "start": "2008-01-01",
+  "end": "2023-12-31",
+  "train_period": [
+    "2008-01-01",
+    "2014-12-31"
+  ],
+  "valid_period": [
+    "2015-01-01",
+    "2016-12-31"
+  ],
+  "test_period": [
+    "2017-01-01",
+    "2020-08-31"
+  ],
+  "extended_days": 400,
+  "workers": 4,
+  "label": "ts_delay(open, -1) / close - 1",
+  "eval_test": true
+}

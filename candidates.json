@@ -1,0 +1,12 @@
+{
+  "board_tradable_event": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995)",
+  "board_return_strength": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (close / ts_delay(close, 1) - 1)",
+  "board_close_strength": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (close / open - 1)",
+  "board_open_gap_proxy": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (open / ts_delay(close, 1) - 1)",
+  "board_volume_surge": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (volume / (ts_mean(volume, 20) + 1e-12))",
+  "board_amount_surge": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (turnover / (ts_mean(turnover, 20) + 1e-12))",
+  "board_pretrend_5": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (ts_delay(close, 1) / ts_delay(close, 6) - 1)",
+  "board_pretrend_20": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (ts_delay(close, 1) / ts_delay(close, 21) - 1)",
+  "board_first_in_5": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * (1 - ts_max(ts_delay(((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998), 1), 5))",
+  "board_balanced_quality": "((close / ts_delay(close, 1) - 1) > 0.095) * ((close / high) > 0.998) * ((low / close) < 0.995) * cs_rank(open / ts_delay(close, 1) - 1) * cs_rank(volume / (ts_mean(volume, 20) + 1e-12)) * cs_rank(ts_delay(close, 1) / ts_delay(close, 21) - 1)"
+}
