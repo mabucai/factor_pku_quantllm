@@ -14,6 +14,26 @@
 - [最终因子](runs/final/factors.json)
 - [独立绩效报告](performance_report.md)
 
+## 本地配置与复现
+
+公开的 `research_settings.json` 保存可复现的研究参数（股票池、时间区间、标签及并发数），不含本地路径或凭据。机器路径单独保存在忽略的 `config.json`；公开 `config.example.json` 仅保留空值。
+
+```powershell
+Copy-Item config.example.json config.json
+```
+
+在本机编辑 `config.json`，将 `lab_path` 填为已准备好的 AlphaLab 数据目录（如 `data/lab/csi300`）；`cache_dir` 留空时使用 `runs/cache`。也可通过 `FACTOR_LAB_PATH` / `FACTOR_CACHE_DIR` 提供路径，环境变量优先。已有本地 `config.json` 仍可覆盖研究参数。首次同步本次更新前，应自行备份旧的本地配置；Git 删除旧跟踪文件时可能移除未修改的副本。
+
+```powershell
+python eval_factors.py candidates.json
+python eval_factors.py round_02/candidates.json
+python final_report.py
+```
+
+本项目无需交易账号、AuthCode 或 API 密钥；研究报告、IC 和收益率曲线为历史行情的汇总统计，不是账户资金快照。禁止提交账号、密码、AuthCode、密钥、资金快照或其他凭据，也不要上传原始交易日志或界面截图。
+
+本地配置、数据、缓存、环境文件、密钥、日志和账户导出均已加入 `.gitignore`。逐个暂存拟公开文件后执行 `python check_compliance.py` 检查 **Git 暂存区**，执行 `python -m unittest discover -s tests -v` 运行离线回归测试。`--history` 可检查本地可达历史；检查器仅报告路径与问题类型，图片及自定义导出仍需人工审核。详见 [COMPLIANCE.md](COMPLIANCE.md)。
+
 ---
 
 # 留存因子终局绩效分析报告

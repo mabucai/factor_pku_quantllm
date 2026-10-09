@@ -1,6 +1,4 @@
 {
-  "lab_path": "data/lab/csi300",
-  "cache_dir": "runs/cache",
   "index": "000300.SSE",
   "start": "2008-01-01",
   "end": "2023-12-31",

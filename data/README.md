@@ -9,4 +9,4 @@ data/lab/csi300/
   contract.json
 ```
 
-`config.json` 中的 `lab_path` 已配置为该相对路径。行情、成分股数据库和缓存均被 `.gitignore` 排除。
+复制 `config.example.json` 为本地 `config.json`，将空白 `lab_path` 填为该相对路径或本机绝对路径，也可设置 `FACTOR_LAB_PATH`。`cache_dir` 留空时使用 `runs/cache`。本地配置、行情、成分股数据库和缓存均被 `.gitignore` 排除；公开样例不携带机器路径或凭据。

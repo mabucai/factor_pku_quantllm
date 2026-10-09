@@ -28,17 +28,9 @@ from vnpy.trader.constant import Interval
 
 from vnpy.alpha import AlphaDataset, AlphaLab
 from vnpy.alpha.dataset import process_cs_norm, process_drop_na
+from research_config import load_config
 
 BASE_DIR = Path(__file__).resolve().parent
-
-
-def load_config() -> dict[str, Any]:
-    path: Path = BASE_DIR / "config.json"
-    config: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
-    lab_path = Path(config["lab_path"])
-    if not lab_path.is_absolute():
-        config["lab_path"] = str((BASE_DIR / lab_path).resolve())
-    return config
 
 
 def parse_factor_map(text: str) -> dict[str, str]:
